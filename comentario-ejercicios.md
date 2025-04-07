@@ -74,3 +74,13 @@
     ```
 
 - **Tiempo aproximado para realizar la tarea: 20 mins**
+
+## Drawer Navigation
+
+- Hemos añadido un nuevo sistema de navegación a la aplicación basado en un drawer.
+- De este modo vamos a poder seleccionar de entre dos componentes: CampoBase y Calendario (éste componente a su vez tiene un sistema de navegación basado en Stack).
+- Parecido al anterior sistema vamos a definir el navigator que se va a encargar de la navegación y las Screens que se van a encargar de asociar un nombre con un componente.
+- El componente Home también tiene navegación de tipo Stack aunque solo tenga una ruta (una screen), probablemente en el futuro queramos añadir nuevas pantallas a las que poder acceder desde Home.
+- Dentro del NavigationContainer solo podemos tener un navegador, utilizamos el DrawerNavigator como el navegador principal y dentro de los componentes a los que podemos acceder con el Drawer Tendremos otros Navigators.
+- Como curiosidad, si accedemos a Calendario desde el Drawer veremos la lista de actividades. Podemos usar el drawer para volver a CampoBase. Si una vez estamos en Calendario accedemos al detalle de una de las excursiones y volvemos a CampoBase, la siguiente vez que accedamos a través del Drawer a Calendario, accederemos al Detalle y no a la lista de actividades.
+- **Tiempo aproximado para realizar la tarea: 36 mins**
