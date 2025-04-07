@@ -16,6 +16,8 @@
   - Se pueden usar %
   - Se puede usar flexbox
 
+- **Tiempo aproximado para realizar la tarea: 30 mins**
+
 ## Componentes React Native
 
 - Se han creado dos componentes (CampoBase y Calendario).
@@ -26,6 +28,7 @@
 - Para pasarle las excursiones a la FlatList utilizamos el prop *data* y utilizamos el prop renderItem para pasarle la función que renderiza los items.
 - Además cada item tiene que tener una *key* por lo que utilizamos el prop keyExtractor al que le tenemos que pasar un atributo único, en este caso el id de cada excursión.
 - Finalmente, importamos el componente CampoBase en App.js.
+- **Tiempo aproximado para realizar la tarea: 20 mins**
 
 ## Componentes funcionales en React Native
 
@@ -50,3 +53,24 @@
   3. La función onPress de Campobase actualiza el estado con el id de la excursión seleccionada
   4. DetalleExcursion recibe la excursión seleccionada como prop (gracias al filter)
   5. RenderExcursion recibe la excursión como prop y muestra los detalles en una *Card*
+- **Tiempo aproximado para realizar la tarea: 30 mins**
+
+## Stack Navigation
+
+- El NavigationContainer se va a encargar de mostrar el contenido en base a rutas.
+- Las Screens básicamente asocian una ruta (un nombre) con un componente, opcionalmente se puede añadir un titulo u otras opciones.
+- Cuando navegamos a una ruta podemos añadir una serie de parámetros:
+  - Por ejemplo, para acceder al detalle de las excursiones podemos navegar haciendo:
+  
+    ```javascript
+    navigate('DetalleExcursion', { excursionId: item.id })
+    ```
+
+    Donde le pasamos el id de la excursion en un objeto JSON.
+  - Para recuperar el parámetro en la ruta del detalle tenemos que acceder al campo route de los props:
+
+    ```javascript
+    const { excursionId } = this.props.route.params;
+    ```
+
+- **Tiempo aproximado para realizar la tarea: 20 mins**
