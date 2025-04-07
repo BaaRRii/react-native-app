@@ -3,6 +3,8 @@ import Constants from 'expo-constants';
 import Calendario from './CalendarioComponent';
 import DetalleExcursion from './DetalleExcursionComponent';
 import Home from './HomeComponent';
+import Contacto from './ContactoComponent';
+import QuienesSomos from './QuienesSomosComponent';
 import { Platform, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -75,7 +77,9 @@ function DrawerNavegador() {
       }}
     >
       <Drawer.Screen name="Campo base" component={HomeNavegador} />
+      <Drawer.Screen name="Quiénes somos" component={QuienesSomos} />
       <Drawer.Screen name="Calendario" component={CalendarioNavegador} />
+      <Drawer.Screen name="Contacto" component={Contacto} />
     </Drawer.Navigator>
   )
 }

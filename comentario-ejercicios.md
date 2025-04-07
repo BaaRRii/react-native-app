@@ -84,3 +84,14 @@
 - Dentro del NavigationContainer solo podemos tener un navegador, utilizamos el DrawerNavigator como el navegador principal y dentro de los componentes a los que podemos acceder con el Drawer Tendremos otros Navigators.
 - Como curiosidad, si accedemos a Calendario desde el Drawer veremos la lista de actividades. Podemos usar el drawer para volver a CampoBase. Si una vez estamos en Calendario accedemos al detalle de una de las excursiones y volvemos a CampoBase, la siguiente vez que accedamos a través del Drawer a Calendario, accederemos al Detalle y no a la lista de actividades.
 - **Tiempo aproximado para realizar la tarea: 36 mins**
+
+## Ejercicio Componentes y Navegación
+
+- Se ha creado el componente Contacto con una ScrollView con un solo elemento que se renderiza gracias a un componente auxiliar llamado RenderItem. Esto puede ser útil si en el futuro se quiere añadir más de una tarjeta de contacto
+- Del mismo modo que en ejercicios anteriores (aunque no se haya específicado para éste) se ha creado un archivo contacto.js con la información de contacto. Esto es útil para saber éxactamente donde están los datos (por si hubiera que cambiarlos) y por si en el futuro se quieren agregar nuevas tarjetas de contacto.
+- En el segundo componente tenemos dos Cards:
+  - La primera se renderiza con un componente funcional llamado Historia
+  - La segunda se renderiza con un componente de clase.
+- Para poder scrollear el componente entero (no solo la lista de actividades) sin caer en problemas de incompatibilidad entre ScrollView y FlatList (los dos son scrolleables) se ha utilizado scrollEnabled={false}.
+- Para poner el título de los elementos por encima de la imagen he utilizado una View con position: relative y dentro he añadido la imagen y el titulo con position: absolute y estilos especificos para que parezca un titulo.
+- **Tiempo aproximado para realizar la tarea: 40 mins**

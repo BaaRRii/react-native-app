@@ -5,37 +5,41 @@ import { EXCURSIONES } from '../comun/excursiones';
 
 function RenderExcursion(props) {
 
-    const excursion = props.excursion;
+  const excursion = props.excursion;
 
-    if (excursion != null) {
-        return (
-            <Card>
-                <Card.Title>{excursion.nombre}</Card.Title>
-                <Card.Divider />
-                <Card.Image source={require('./imagenes/40Años.png')}></Card.Image>
-                <Text style={{ margin: 20 }}>
-                    {excursion.descripcion}
-                </Text>
-            </Card>
-        );
-    }
-    else {
-        return (<View></View>);
-    }
+  if (excursion != null) {
+    return (
+      <Card>
+        <Card.Divider />
+        <View style={{ position: 'relative' }}>
+          <Card.Image source={require('./imagenes/40Años.png')}></Card.Image>
+          <Text style={{ color: 'chocolate', fontSize: 34, fontWeight: 'bold', textAlign: 'center', position: 'absolute', top: 10, left: 0, right: 0 }}>
+            {excursion.nombre}
+          </Text>
+        </View>
+        <Text style={{ margin: 20 }}>
+          {excursion.descripcion}
+        </Text>
+      </Card>
+    );
+  }
+  else {
+    return (<View></View>);
+  }
 }
 
 class DetalleExcursion extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            excursiones: EXCURSIONES
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      excursiones: EXCURSIONES
+    };
+  }
 
-    render() {
-        const { excursionId } = this.props.route.params;
-        return (<RenderExcursion excursion={this.state.excursiones[+excursionId]} />);
-    }
+  render() {
+    const { excursionId } = this.props.route.params;
+    return (<RenderExcursion excursion={this.state.excursiones[+excursionId]} />);
+  }
 }
 
 export default DetalleExcursion;

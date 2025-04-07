@@ -7,46 +7,50 @@ import { ACTIVIDADES } from '../comun/actividades';
 
 function RenderItem(props) {
 
-    const item = props.item;
+  const item = props.item;
 
-    if (item != null) {
-        return (
-            <Card>
-                <Card.Title>{item.nombre}</Card.Title>
-                <Card.Divider />
-                <Card.Image source={require('./imagenes/40Años.png')}></Card.Image>
-                <Text style={{ margin: 20 }}>
-                    {item.descripcion}
-                </Text>
-            </Card>
-        );
-    }
-    else {
-        return (<View></View>);
-    }
+  if (item != null) {
+    return (
+      <Card>
+        <Card.Divider />
+        <View style={{ position: 'relative' }}>
+          <Card.Image source={require('./imagenes/40Años.png')}></Card.Image>
+          <Text style={{ color: 'chocolate', fontSize: 34, fontWeight: 'bold', textAlign: 'center', position: 'absolute', top: 10, left: 0, right: 0 }}>
+            {item.nombre}
+          </Text>
+        </View>
+        <Text style={{ margin: 20 }}>
+          {item.descripcion}
+        </Text>
+      </Card>
+    );
+  }
+  else {
+    return (<View></View>);
+  }
 }
 
 class Home extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            excursiones: EXCURSIONES,
-            cabeceras: CABECERAS,
-            actividades: ACTIVIDADES
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      excursiones: EXCURSIONES,
+      cabeceras: CABECERAS,
+      actividades: ACTIVIDADES
+    };
+  }
 
-    render() {
+  render() {
 
-        return (
-            <ScrollView>
-                <RenderItem item={this.state.cabeceras.filter((cabecera) => cabecera.destacado)[0]} />
-                <RenderItem item={this.state.excursiones.filter((excursion) => excursion.destacado)[0]} />
-                <RenderItem item={this.state.actividades.filter((actividad) => actividad.destacado)[0]} />
-            </ScrollView>
-        );
-    }
+    return (
+      <ScrollView>
+        <RenderItem item={this.state.cabeceras.filter((cabecera) => cabecera.destacado)[0]} />
+        <RenderItem item={this.state.excursiones.filter((excursion) => excursion.destacado)[0]} />
+        <RenderItem item={this.state.actividades.filter((actividad) => actividad.destacado)[0]} />
+      </ScrollView>
+    );
+  }
 }
 
 export default Home;
