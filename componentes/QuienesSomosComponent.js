@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { Text, ScrollView, View } from 'react-native';
 import { Card } from '@rneui/themed';
 import { ACTIVIDADES } from '../comun/actividades';
@@ -36,10 +37,7 @@ class QuienesSomos extends Component {
     };
   }
 
-
-
   render() {
-
 
     const renderActividadesItem = ({ item, index }) => {
       return (

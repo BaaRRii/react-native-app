@@ -95,3 +95,13 @@
 - Para poder scrollear el componente entero (no solo la lista de actividades) sin caer en problemas de incompatibilidad entre ScrollView y FlatList (los dos son scrolleables) se ha utilizado scrollEnabled={false}.
 - Para poner el título de los elementos por encima de la imagen he utilizado una View con position: relative y dentro he añadido la imagen y el titulo con position: absolute y estilos especificos para que parezca un titulo.
 - **Tiempo aproximado para realizar la tarea: 40 mins**
+
+## Botones e Iconos
+
+- Se han añadido los comentarios con el mismo mecanismo con el que cargamos las excursiones y actividades.
+- Podemos utilizar iconos con onPress para que tengan un comportamiento similar al de un botón
+- Podemos usar todo el repertorio de font-awesome para los iconos
+- Hemos añadido un boton para cada excursion para poder marcarla como favorito. Si ya es favorita salta un mensaje en la consola
+- Se han actualizado los Navegadores para tener un botón para ver el drawer.
+- Este botón me ha dado problemas en mi teléfono y he estado un buen rato investigando. Finalmente, el apaño que he hecho ha sido utilizar onPressIn en vez de onPress y así funciona. No he sabido identificar por qué onPress no funciona (no detecta el toque con el dedo)
+- **Tiempo aproximado para realizar la tarea: 60 mins**
