@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Constants from 'expo-constants';
-import { View, Platform, StyleSheet, Image, Text } from 'react-native';
+import { View, StyleSheet, Image, Text } from 'react-native';
 
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { Icon } from '@rneui/themed';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { colorGaztaroaClaro, colorGaztaroaOscuro } from '../comun/comun';
 
 import Calendario from './CalendarioComponent';
 import DetalleExcursion from './DetalleExcursionComponent';
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   drawerHeader: {
-    backgroundColor: '#015afc',
+    backgroundColor: colorGaztaroaOscuro,
     height: 100,
     alignItems: 'center',
     justifyContent: 'center',
@@ -65,7 +66,7 @@ function QuienesSomosNavegador({ navigation }) {
       initialRouteName="QuienesSomos"
       screenOptions={{
         headerTintColor: '#fff',
-        headerStyle: { backgroundColor: '#015afc' },
+        headerStyle: { backgroundColor: colorGaztaroaOscuro },
         headerTitleStyle: { color: '#fff' },
         headerLeft: () => (
           <Icon name="menu"
@@ -92,7 +93,7 @@ function ContactoNavegador({ navigation }) {
       initialRouteName="Contacto"
       screenOptions={{
         headerTintColor: '#fff',
-        headerStyle: { backgroundColor: '#015afc' },
+        headerStyle: { backgroundColor: colorGaztaroaOscuro },
         headerTitleStyle: { color: '#fff' },
         headerLeft: () => (
           <Icon name="menu"
@@ -120,7 +121,7 @@ function CalendarioNavegador({ navigation }) {
       headerMode="float"
       screenOptions={{
         headerTintColor: '#fff',
-        headerStyle: { backgroundColor: '#015afc' },
+        headerStyle: { backgroundColor: colorGaztaroaOscuro },
         headerTitleStyle: { color: '#fff' },
         headerLeft: () => (
           <Icon name="menu"
@@ -157,7 +158,7 @@ function HomeNavegador({ navigation }) {
       screenOptions={{
         headerMode: 'screen',
         headerTintColor: '#fff',
-        headerStyle: { backgroundColor: '#015afc' },
+        headerStyle: { backgroundColor: colorGaztaroaOscuro },
         headerTitleStyle: { color: '#fff' },
         headerLeft: () => (
           <Icon name="menu"
@@ -186,7 +187,7 @@ function DrawerNavegador() {
       screenOptions={{
         headerShown: false,
         drawerStyle: {
-          backgroundColor: '#c2d3da',
+          backgroundColor: colorGaztaroaClaro,
         },
       }}
     >

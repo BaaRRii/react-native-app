@@ -3,6 +3,7 @@ import { Text, View, ScrollView } from 'react-native';
 import { Card, Icon } from '@rneui/themed';
 import { EXCURSIONES } from '../comun/excursiones';
 import { COMENTARIOS } from '../comun/comentarios';
+import { baseUrl } from '../comun/comun';
 
 function RenderExcursion(props) {
 
@@ -13,8 +14,8 @@ function RenderExcursion(props) {
       <Card>
         <Card.Divider />
         <View style={{ position: 'relative' }}>
-          <Card.Image source={require('./imagenes/40Años.png')}></Card.Image>
-          <Text style={{ color: 'chocolate', fontSize: 34, fontWeight: 'bold', textAlign: 'center', position: 'absolute', top: 10, left: 0, right: 0 }}>
+          <Card.Image source={{ uri: baseUrl + excursion.imagen }} />
+          <Text style={{ color: 'white', fontSize: 34, fontWeight: 'bold', textAlign: 'center', position: 'absolute', top: 10, left: 0, right: 0 }}>
             {excursion.nombre}
           </Text>
         </View>
@@ -78,7 +79,7 @@ class DetalleExcursion extends Component {
       favoritos: [],
     };
   }
-  
+
   marcarFavorito(excursionId) {
     this.setState({ favoritos: this.state.favoritos.concat(excursionId) });
   };
@@ -89,7 +90,7 @@ class DetalleExcursion extends Component {
     const { excursionId } = this.props.route.params;
     return (
       <ScrollView>
-        <RenderExcursion excursion={this.state.excursiones[+excursionId]} favorita={ this.state.favoritos.some(e => e === excursionId) } onPress={ () => this.marcarFavorito(excursionId) } />
+        <RenderExcursion excursion={this.state.excursiones[+excursionId]} favorita={this.state.favoritos.some(e => e === excursionId)} onPress={() => this.marcarFavorito(excursionId)} />
         <RenderComentario
           comentarios={this.state.comentarios.filter((comentario) => comentario.excursionId === excursionId)} />
       </ScrollView>

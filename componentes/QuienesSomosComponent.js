@@ -7,6 +7,8 @@ import { HISTORIA } from '../comun/historia';
 import { ListItem, Avatar } from '@rneui/themed';
 import { FlatList } from 'react-native';
 
+import { baseUrl } from '../comun/comun';
+
 function Historia(props) {
 
   const item = props.item;
@@ -44,7 +46,7 @@ class QuienesSomos extends Component {
         <ListItem
           key={index}
           bottomDivider>
-          <Avatar source={require('./imagenes/40Años.png')} />
+          <Avatar source={{uri: baseUrl + item.imagen}} />
           <ListItem.Content>
             <ListItem.Title>{item.nombre}</ListItem.Title>
             <ListItem.Subtitle>{item.descripcion}</ListItem.Subtitle>

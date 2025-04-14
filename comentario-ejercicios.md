@@ -105,3 +105,12 @@
 - Se han actualizado los Navegadores para tener un botón para ver el drawer.
 - Este botón me ha dado problemas en mi teléfono y he estado un buen rato investigando. Finalmente, el apaño que he hecho ha sido utilizar onPressIn en vez de onPress y así funciona. No he sabido identificar por qué onPress no funciona (no detecta el toque con el dedo)
 - **Tiempo aproximado para realizar la tarea: 60 mins**
+
+## Servidor JSON
+
+- Empleamos un servidor JSON para servir recursos
+- Tenemos dos tipos de recurso los que están en la carpeta public (imagenes) y los que definimos con el servidor (db.json).
+- Esto crea un servidor http con los recursos pudiendo acceder con <http://192.168.1.162:3001/actividades> por ejemplo.
+- Una vez el servidor esta corriendo podemos sustituir el origen de las imagenes con la url correspondiente.
+- Además hemos definido en un archivo "comun.js" estilos y variables que vamos a utilizar en muchas partes de la aplicación.
+- **Tiempo aproximado para realizar la tarea: 30 mins**
