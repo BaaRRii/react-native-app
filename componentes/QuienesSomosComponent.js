@@ -2,12 +2,23 @@ import React, { Component } from 'react';
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { Text, ScrollView, View } from 'react-native';
 import { Card } from '@rneui/themed';
-import { ACTIVIDADES } from '../comun/actividades';
-import { HISTORIA } from '../comun/historia';
+
+// import { ACTIVIDADES } from '../comun/actividades';
+import { connect } from 'react-redux';
+
 import { ListItem, Avatar } from '@rneui/themed';
 import { FlatList } from 'react-native';
 
+import { HISTORIA } from '../comun/historia';
 import { baseUrl } from '../comun/comun';
+
+const historia = HISTORIA[0];
+
+const mapStateToProps = state => {
+  return {
+    actividades: state.actividades,
+  }
+}
 
 function Historia(props) {
 
@@ -31,14 +42,6 @@ function Historia(props) {
 
 class QuienesSomos extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      actividades: ACTIVIDADES,
-      historia: HISTORIA,
-    };
-  }
-
   render() {
 
     const renderActividadesItem = ({ item, index }) => {
@@ -57,12 +60,12 @@ class QuienesSomos extends Component {
 
     return (
       <ScrollView>
-        <Historia item={this.state.historia[0]} />
+        <Historia item={historia} />
         <Card>
           <Card.Title>{"Actividades y recursos"}</Card.Title>
           <Card.Divider />
           <FlatList
-            data={this.state.actividades}
+            data={this.props.actividades.actividades}
             renderItem={renderActividadesItem}
             keyExtractor={item => item.id.toString()}
             scrollEnabled={false}
@@ -73,4 +76,4 @@ class QuienesSomos extends Component {
   }
 }
 
-export default QuienesSomos;
+export default connect(mapStateToProps)(QuienesSomos);

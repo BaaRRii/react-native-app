@@ -114,3 +114,14 @@
 - Una vez el servidor esta corriendo podemos sustituir el origen de las imagenes con la url correspondiente.
 - Además hemos definido en un archivo "comun.js" estilos y variables que vamos a utilizar en muchas partes de la aplicación.
 - **Tiempo aproximado para realizar la tarea: 30 mins**
+
+## Redux y Thunk
+
+- Hay que tener claros los distintos componentes que se utilizan en Redux y Thunk
+- Por un lado tenemos el store que almacena el estado. El estado es invariable. Se crea un nuevo estado para cada "cambio".
+- Los reducers se encargan de interactuar con el estado.
+- Las actions describen el tipo de cambio que se quiere hacer.
+- Los componentes hacen "dispatch" de una acción.
+- Thunk nos permite realizar solicitudes asíncronas como peticiones a un servidor externo.
+- **Tiempo aproximado para realizar la tarea: 30 mins + 30 mins (diagrama)**
+- ![Image](/diagrama.png "a title")

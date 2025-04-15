@@ -9,6 +9,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { colorGaztaroaClaro, colorGaztaroaOscuro } from '../comun/comun';
 
+import { connect } from 'react-redux';
+import { fetchExcursiones, fetchComentarios, fetchCabeceras, fetchActividades } from '../redux/ActionCreators';
+
 import Calendario from './CalendarioComponent';
 import DetalleExcursion from './DetalleExcursionComponent';
 import Home from './HomeComponent';
@@ -17,6 +20,22 @@ import QuienesSomos from './QuienesSomosComponent';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
+
+const mapStateToProps = state => {
+  return {
+    excursiones: state.excursiones,
+    comentarios: state.comentarios,
+    cabeceras: state.cabeceras,
+    actividades: state.actividades
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  fetchExcursiones: () => dispatch(fetchExcursiones()),
+  fetchComentarios: () => dispatch(fetchComentarios()),
+  fetchCabeceras: () => dispatch(fetchCabeceras()),
+  fetchActividades: () => dispatch(fetchActividades()),
+})
 
 const styles = StyleSheet.create({
   container: {
@@ -71,10 +90,10 @@ function QuienesSomosNavegador({ navigation }) {
         headerLeft: () => (
           <Icon name="menu"
             size={28}
-            style={{marginLeft: 10, marginRight: 10}}
+            style={{ marginLeft: 10, marginRight: 10 }}
             color='white'
             onPressIn={() => navigation.dispatch(DrawerActions.toggleDrawer())} />),
-        }}
+      }}
     >
       <Stack.Screen
         name="QuienesSomos"
@@ -98,10 +117,10 @@ function ContactoNavegador({ navigation }) {
         headerLeft: () => (
           <Icon name="menu"
             size={28}
-            style={{marginLeft: 10, marginRight: 10}}
+            style={{ marginLeft: 10, marginRight: 10 }}
             color='white'
             onPressIn={() => navigation.dispatch(DrawerActions.toggleDrawer())} />),
-        }}
+      }}
     >
       <Stack.Screen
         name="Contacto"
@@ -126,10 +145,10 @@ function CalendarioNavegador({ navigation }) {
         headerLeft: () => (
           <Icon name="menu"
             size={28}
-            style={{marginLeft: 10, marginRight: 10}}
+            style={{ marginLeft: 10, marginRight: 10 }}
             color='white'
             onPressIn={() => navigation.dispatch(DrawerActions.toggleDrawer())} />),
-        }}
+      }}
     >
       <Stack.Screen
         name="Calendar"
@@ -163,10 +182,10 @@ function HomeNavegador({ navigation }) {
         headerLeft: () => (
           <Icon name="menu"
             size={28}
-            style={{marginLeft: 10, marginRight: 10}}
+            style={{ marginLeft: 10, marginRight: 10 }}
             color='white'
             onPressIn={() => navigation.dispatch(DrawerActions.toggleDrawer())} />),
-        }}
+      }}
     >
       <Stack.Screen
         name="Home"
@@ -244,10 +263,18 @@ function DrawerNavegador() {
 }
 
 class Campobase extends Component {
+
+  componentDidMount() {
+    this.props.fetchExcursiones();
+    this.props.fetchComentarios();
+    this.props.fetchCabeceras();
+    this.props.fetchActividades();
+  }
+
   render() {
     return (
       <NavigationContainer>
-        <View style={{ flex: 1,  }}>
+        <View style={{ flex: 1, }}>
           <DrawerNavegador />
         </View>
       </NavigationContainer>
@@ -255,4 +282,4 @@ class Campobase extends Component {
   }
 }
 
-export default Campobase;
+export default connect(mapStateToProps, mapDispatchToProps)(Campobase);

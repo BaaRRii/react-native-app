@@ -3,6 +3,8 @@ import { Text, ScrollView, View } from 'react-native';
 import { Card } from '@rneui/themed';
 import { CONTACTO } from '../comun/contacto';
 
+const contacto = CONTACTO[0];
+
 function RenderItem(props) {
 
   const item = props.item;
@@ -31,18 +33,11 @@ function RenderItem(props) {
 
 class Contacto extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      contacto: CONTACTO,
-    };
-  }
-
   render() {
 
     return (
       <ScrollView>
-        <RenderItem item={this.state.contacto[0]} />
+        <RenderItem item={contacto} />
       </ScrollView>
     );
   }
