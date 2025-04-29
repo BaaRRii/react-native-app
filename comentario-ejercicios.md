@@ -125,3 +125,10 @@
 - Thunk nos permite realizar solicitudes asíncronas como peticiones a un servidor externo.
 - **Tiempo aproximado para realizar la tarea: 30 mins + 30 mins (diagrama)**
 - ![Image](/diagrama.png "a title")
+
+## Activity Indicator y addFavoritos
+
+- Es importante dar feedback al usuario cuando se están ejecutando consultas al servidor.
+- El estado de los favoritos ya no es local en DetalleExcursion sino que ahora esta guardado en el estado global
+- Los próximos pasos pueden ser persistir los cambios de favoritos (ahora al cerrar se pierden) y como desmarcarlos
+- **Tiempo aproximado para realizar la tarea: 30 mins**

@@ -5,6 +5,7 @@ import { SafeAreaView, FlatList } from 'react-native';
 import { baseUrl } from '../comun/comun';
 
 import { connect } from 'react-redux';
+import { IndicadorActividad } from './IndicadorActividadComponent';
 
 const mapStateToProps = state => {
   return {
@@ -24,7 +25,7 @@ class Calendario extends Component {
           key={index}
           onPress={() => navigate('DetalleExcursion', { excursionId: item.id })}
           bottomDivider>
-          <Avatar source={{uri: baseUrl + item.imagen}} />
+          <Avatar source={{ uri: baseUrl + item.imagen }} />
           <ListItem.Content>
             <ListItem.Title>{item.nombre}</ListItem.Title>
             <ListItem.Subtitle>{item.descripcion}</ListItem.Subtitle>
@@ -33,15 +34,36 @@ class Calendario extends Component {
       );
     };
 
-    return (
-      <SafeAreaView>
-        <FlatList
-          data={this.props.excursiones.excursiones}
-          renderItem={renderCalendarioItem}
-          keyExtractor={item => item.id.toString()}
-        />
-      </SafeAreaView>
-    );
+    const isLoading = this.props.excursiones.isLoading
+    const errMess = this.props.excursiones.errMess
+
+    if (isLoading) {
+      return (
+        <SafeAreaView>
+          <IndicadorActividad />
+        </SafeAreaView>
+      );
+    } else if (errMess) {
+      return (
+        <SafeAreaView>
+          <View>
+            <Text>{errMess}</Text>
+          </View>
+        </SafeAreaView>
+      );
+    }
+    else {
+      return (
+        <SafeAreaView>
+          <FlatList
+            data={this.props.excursiones.excursiones}
+            renderItem={renderCalendarioItem}
+            keyExtractor={item => item.id.toString()}
+          />
+        </SafeAreaView>
+      );
+    }
+
   }
 }
 

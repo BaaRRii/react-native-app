@@ -49,7 +49,7 @@ class QuienesSomos extends Component {
         <ListItem
           key={index}
           bottomDivider>
-          <Avatar source={{uri: baseUrl + item.imagen}} />
+          <Avatar source={{ uri: baseUrl + item.imagen }} />
           <ListItem.Content>
             <ListItem.Title>{item.nombre}</ListItem.Title>
             <ListItem.Subtitle>{item.descripcion}</ListItem.Subtitle>
@@ -58,21 +58,50 @@ class QuienesSomos extends Component {
       );
     };
 
-    return (
-      <ScrollView>
-        <Historia item={historia} />
-        <Card>
-          <Card.Title>{"Actividades y recursos"}</Card.Title>
-          <Card.Divider />
-          <FlatList
-            data={this.props.actividades.actividades}
-            renderItem={renderActividadesItem}
-            keyExtractor={item => item.id.toString()}
-            scrollEnabled={false}
-          />
-        </Card>
-      </ScrollView>
-    );
+    const isLoading = this.props.actividades.isLoading
+    const errMess = this.props.actividades.errMess
+
+    if (isLoading) {
+      return (
+        <ScrollView>
+          <Historia item={historia} />
+          <Card>
+            <Card.Title>{"Actividades y recursos"}</Card.Title>
+            <Card.Divider />
+            <IndicadorActividad />
+          </Card>
+        </ScrollView>
+      )
+    }
+    else if (errMess) {
+      return (
+        <ScrollView>
+          <Historia item={historia} />
+          <Card>
+            <Card.Title>{"Actividades y recursos"}</Card.Title>
+            <Card.Divider />
+            <Text>{errMess}</Text>
+          </Card>
+        </ScrollView>
+      )
+    }
+    else {
+      return (
+        <ScrollView>
+          <Historia item={historia} />
+          <Card>
+            <Card.Title>{"Actividades y recursos"}</Card.Title>
+            <Card.Divider />
+            <FlatList
+              data={this.props.actividades.actividades}
+              renderItem={renderActividadesItem}
+              keyExtractor={item => item.id.toString()}
+              scrollEnabled={false}
+            />
+          </Card>
+        </ScrollView>
+      )
+    }
   }
 }
 
