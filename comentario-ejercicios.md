@@ -142,3 +142,4 @@
   3. La valoración viene de la libreria react-native-ratings
   4. Hay dos botones, uno para enviar y otro para cancelar
 - Integramos con Redux como en ejercicios pasados. Dos actiontypes nuevos con un actioncreator nuevo.
+- **Tiempo aproximado para realizar la tarea: 45 mins**
