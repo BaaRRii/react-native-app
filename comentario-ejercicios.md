@@ -132,3 +132,13 @@
 - El estado de los favoritos ya no es local en DetalleExcursion sino que ahora esta guardado en el estado global
 - Los próximos pasos pueden ser persistir los cambios de favoritos (ahora al cerrar se pierden) y como desmarcarlos
 - **Tiempo aproximado para realizar la tarea: 30 mins**
+
+## Ejercicio Formularios y Modals con Redux
+
+- El ejercicio se ha dividido en dos partes: diseño e integración con Redux.
+- En la parte de diseño:
+  1. Hemos añadido un icono como botón para abrir el modal
+  2. El modal actúa como formulario donde el usuario puede introducir la valoración, autor y comentario
+  3. La valoración viene de la libreria react-native-ratings
+  4. Hay dos botones, uno para enviar y otro para cancelar
+- Integramos con Redux como en ejercicios pasados. Dos actiontypes nuevos con un actioncreator nuevo.
